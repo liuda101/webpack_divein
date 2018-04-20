@@ -5,6 +5,7 @@
 
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   // 指定入口文件
@@ -19,19 +20,19 @@ module.exports = {
     rules: [{
       // 需要处理的文件类型
       test: /\.css$/,
-      // loader 执行顺序：从数组末尾到前面
-      use: [
+      use: ExtractTextPlugin.extract({
         // 将 css 转换成 js
-        'style-loader',
+        // fallback: 'style-loader',
         // 主要处理 css 中的依赖，如 @import, url() 等
-        'css-loader'
-      ]
+        use: 'css-loader'
+      })
     }]
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html'
-    })
+    }),
+    new ExtractTextPlugin('index.css')
   ]
 }
