@@ -1,4 +1,4 @@
-import now from './now'
+import app from './app'
 import './index.styl'
 
-document.querySelector('#title').innerHTML = now() + ' webpack dev server'
+app()

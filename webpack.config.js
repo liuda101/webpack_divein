@@ -8,6 +8,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
+  // 配置解析方式
+  resolve: {
+    alias: {
+      utils: path.resolve(__dirname, 'src/utils')
+    }
+  },
   // 指定入口文件
   entry: './src/index.js',
   // 指定编辑后的出口文件
