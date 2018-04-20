@@ -1,4 +1,4 @@
 import app from './app'
-import './index.styl'
+import './theme'
 
 app()

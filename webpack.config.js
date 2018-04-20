@@ -10,6 +10,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
   // 配置解析方式
   resolve: {
+    extensions: ['.js', '.styl'],
     alias: {
       utils: path.resolve(__dirname, 'src/utils')
     }
