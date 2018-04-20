@@ -1,4 +1,4 @@
 import now from './now'
-import './index.css'
+import './index.styl'
 
 document.querySelector('#title').innerHTML = now()

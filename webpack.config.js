@@ -19,12 +19,15 @@ module.exports = {
   module: {
     rules: [{
       // 需要处理的文件类型
-      test: /\.css$/,
+      test: /\.styl$/,
       use: ExtractTextPlugin.extract({
         // 将 css 转换成 js
-        // fallback: 'style-loader',
+        fallback: 'style-loader',
         // 主要处理 css 中的依赖，如 @import, url() 等
-        use: 'css-loader'
+        use: [
+          'css-loader',
+          'stylus-loader'
+        ]
       })
     }]
   },
