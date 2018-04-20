@@ -16,11 +16,14 @@ module.exports = {
     }
   },
   // 指定入口文件
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js'
+    // intro: './src/app/intro.js'
+  },
   // 指定编辑后的出口文件
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'app.js'
+    filename: '[name].[hash:8].js'
   },
   // 配置 loader
   module: {
@@ -41,7 +44,10 @@ module.exports = {
       use: [
         {
           loader: 'file-loader',
-          options: {}
+          options: {
+            // 这里的哈希算法，是 file-loader 提供的，与 webpack 无关
+            name: '[name].[hash:6].[ext]'
+          }
         }
       ]
     }]
