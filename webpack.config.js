@@ -12,5 +12,18 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.js'
+  },
+  // 配置 loader
+  module: {
+    rules: [{
+      // 需要处理的文件类型
+      test: /\.css$/,
+      use: [
+        // 将 css 转换成 js
+        'style-loader',
+        // 主要处理 css 中的依赖，如 @import, url() 等
+        'css-loader'
+      ]
+    }]
   }
 }
