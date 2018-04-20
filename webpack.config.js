@@ -61,6 +61,7 @@ module.exports = {
   ],
 
   optimization: {
+    // 将所有公共的 chunk，都分离出来
     splitChunks: {
       chunks: 'all'
     }
