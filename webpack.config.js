@@ -4,6 +4,7 @@
  */
 
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   // 指定入口文件
@@ -18,6 +19,7 @@ module.exports = {
     rules: [{
       // 需要处理的文件类型
       test: /\.css$/,
+      // loader 执行顺序：从数组末尾到前面
       use: [
         // 将 css 转换成 js
         'style-loader',
@@ -25,5 +27,11 @@ module.exports = {
         'css-loader'
       ]
     }]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './src/index.html'
+    })
+  ]
 }
