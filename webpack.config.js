@@ -58,5 +58,11 @@ module.exports = {
       template: './src/index.html'
     }),
     new ExtractTextPlugin('index.css')
-  ]
+  ],
+
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
 }
