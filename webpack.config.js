@@ -17,13 +17,13 @@ module.exports = {
   },
   // 指定入口文件
   entry: {
-    index: './src/index.js'
-    // intro: './src/app/intro.js'
+    index: './src/index.js',
+    intro: './src/app/intro.js'
   },
   // 指定编辑后的出口文件
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash:8].js'
+    filename: '[name].[chunkhash:8].js'
   },
   // 配置 loader
   module: {
